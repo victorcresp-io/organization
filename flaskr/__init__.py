@@ -1,6 +1,7 @@
 import os
+import requests
 
-from flask import Flask
+from flask import Flask, render_template, request
 
 
 def create_app(test_config=None):
@@ -25,8 +26,9 @@ def create_app(test_config=None):
         pass
 
     # a simple page that says hello
-    @app.route('/hello')
+    @app.route('/organizacao_uber', methods = ['GET', 'POST'])
     def hello():
-        return 'Hello, World!'
-
+        teste = request.form.get('valorTotalUber')
+        print(teste)
+        return render_template('base.html')
     return app
