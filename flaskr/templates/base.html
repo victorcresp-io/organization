@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=], initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
     <title>Organização Diária</title>
 </head>
 <body>
-    <h1>Teste</h1>
-
-    <form action="/organizacao_uber" method = "POST">
-        <label for="valorDiaria">Quantidade</label><br>
-        <input type="text", id="valorDiaria", name="valorTotalUber">
-        <input type="submit">
-    </form>
+    <div class="form-post">
+        <form action="/organizacao_uber" method = "POST">
+            <div class="header-of-title">
+                <h4 class="title-post">Informações - Uber</h4>
+            </div>
+            <label for="valorDiaria">Qual foi sua diária?</label>
+            <input type="text" id="valorDiaria" name="valorTotalUber">
+            <input type="submit">
+        </form>
+    </div>
 </body>
 </html>

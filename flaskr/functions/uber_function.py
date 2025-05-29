@@ -1,8 +1,8 @@
 import typing
 
-def AdicionarDiariaUberParaDb(conn: str, valorDiaria: float):
+def AdicionarDiariaUberParaDb(conn: object, valorDiaria: float):
     """
-    Adiciona o valor capturado do HTML e o adiciona ao banco de dados.
+    Captura o valor do HTML e o adiciona ao banco de dados.
 
     Args:
 
@@ -16,5 +16,5 @@ def AdicionarDiariaUberParaDb(conn: str, valorDiaria: float):
     """ 
 
     query = "INSERT INTO table VALUES (%s);"
-    data = valorDiaria
+    data = (valorDiaria,)
     conn.execute(query, data)
