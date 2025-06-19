@@ -27,9 +27,25 @@ def create_app(test_config=None):
         pass
 
     # a simple page that says hello
-    @app.route('/organizacao_uber', methods = ['GET', 'POST'])
-    def hello():
+    @app.route('/', methods = ['GET', 'POST'])
+    def main_page():
         teste = request.form.get('valorTotalUber')
         print(teste)
         return render_template('base.html')
+    
+    @app.route('/informacao_uber', methods = ['GET', 'POST'])
+    def informacao_uber():
+        teste = request.form.get('valorTotalUber')
+        print(teste)
+        return render_template('informe_uber.html')
+    
+    @app.route('/diaria_uber', methods = ['GET', 'POST'])
+    def diaria_uber():
+        teste = request.form.get('valorTotalUber')
+        print(teste)
+        return render_template('diaria_uber.html')
+
+    @app.route('/gastos_diaria', methods = ['GET', 'POST'])
+    def gastos_diaria():
+        return render_template('gastos_diaria.html')
     return app

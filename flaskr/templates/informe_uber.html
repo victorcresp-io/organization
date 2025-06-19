@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página com Layout Responsivo</title>
-    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="static/informe_uber.css">
 </head>
 <body>
     <main class="container">
-        <a href="{{ url_for('informacao_uber') }}" class="card">Uber</a>
-        <a href="" class="card">Elemento 2</a>
-        <a href="" class="card">Elemento 3</a>
+        <a href="{{ url_for('diaria_uber') }}" class="card">Diária</a>
+        <a href="{{ url_for('gastos_diaria') }}" class="card">Gastos referentes a diária</a>
     </main>
 </body>
 </html>

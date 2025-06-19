@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organização - Uber</title>
+    <link rel="stylesheet" href="static/diaria_uber.css">
+</head>
+<body>
+    <main class="container">
+        <div class="form-card">
+            <h1>Organização - Uber</h1>
+            <form action="/diaria_uber" method="POST">
+                <label for="valor_diaria">Valor da diária:</label>
+                <input type="text"  name="valor_diaria" id="valor_diaria" required>
+
+                <label for="gasto1">Informe a data da diária:</label>
+                <input type="text" name="gasto1" id="gasto1" required>
+
+                <label for="gasto2">Tempo total gasto para fazer a diária:</label>
+                <input type="text" name="gasto2" id="gasto2" required>
+
+                <button type="submit" class="submit-btn">Enviar</button>
+                <a href="{{ url_for('informacao_uber') }}" class="back-mainpage">Voltar</a>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
