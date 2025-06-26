@@ -1,4 +1,5 @@
 .meuterminal/
+myterminal/
 .venv/
 
 *.pyc
