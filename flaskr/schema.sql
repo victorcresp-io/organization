@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS uber_diaria
-DROP TABLE IF EXISTS uber_gastos
+DROP TABLE IF EXISTS uber_diaria;
+DROP TABLE IF EXISTS uber_gastos;
 
 CREATE TABLE uber_daily_money (
     cost FLOAT,
