@@ -1,16 +1,17 @@
-from flaskr.functions.uber_function import AdicionarDiariaUberParaDb
-from unittest.mock import MagicMock
-import pytest
+import unittest
 
-def test_AdicionarDiariaUberParaDb():
-    # Cria um mock para a conexão
-    mock_conn = MagicMock()
+from flaskr import create_app
+from flaskr.db import get_db
 
-    # Valor fictício para o teste
-    valor_teste = 123.45
+class TestStringMethods(unittest.TestCase):
 
-    # Chama a função passando o mock ao invés da conexão real
-    AdicionarDiariaUberParaDb(mock_conn, valor_teste)
+    def test_db(self):
+        app = create_app()
+        with app.app_context():
+            conn = get_db()
+            cursor = conn.cursor()
+            result = cursor.execute("SELECT name FROM sqlite_master WHERE type='table';").fetchall()
+            self.assertEqual(result, [('uber_daily_money',), ('uber_daily_cost',)])
 
-    # Verifica se o método execute foi chamado com os parâmetros esperados
-    mock_conn.execute.assert_called_once_with("INSERT INTO table VALUES (%s);", valor_teste)
+if __name__ == '__main__':
+    unittest.main()
