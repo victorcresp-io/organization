@@ -1,20 +1,78 @@
 import typing
+from datetime import datetime, date
 
-def AdicionarDiariaUberParaDb(conn: object, valorDiaria: float):
+from flask import request
+    
+def capturarDataHtml() -> date:
     """
-    Captura o valor do HTML e o adiciona ao banco de dados.
+    Captura a data inserida pelo usuário no formulário do html 'diaria_uber.html'
+
+    Args:
+
+    None
+
+    Response:
+
+    Date: Data enviada pelo formulário convertida para objeto date
+    """
+
+    data = request.form.get('data_diaria')
+    data_formatada = datetime.strptime(data, '%d/%m/%Y').date()
+
+    return data_formatada
+
+def capturarDiariaHtml() -> float:
+    """
+    Captura a diária inserida pelo usuário no formulário do html 'diaria_uber.html'
+
+    Args:
+
+    None
+
+    Response:
+
+    Float: Diária enviada pelo formulário convertida para objeto float
+    """
+
+    diaria = request.form.get('valor_diaria')
+    diaria_formatada = float(diaria)
+    return diaria_formatada
+
+def capturarTempoTotalHtml() -> str:
+    """
+    Captura o tempo total inserido pelo usuário no formulário do html 'diaria_uber.html'
+
+    Args:
+
+    None
+
+    Response:
+
+    Datetime: Tempo total enviado pelo formulário convertida para objeto datetime
+    """
+
+    tempo_total = request.form.get('tempo_total')
+    return tempo_total
+
+def inserirValoresDb(conn: object):
+    """
+    Insere os valores capturados pela função para o DB.
 
     Args:
 
     conn: Conexão com o banco de dados
 
-    valorDiaria: Valor da diária feita na Uber (capturada no HTML)
 
     Response:
 
     None
     """ 
 
-    query = "INSERT INTO table VALUES (%s);"
-    data = (valorDiaria,)
-    conn.execute(query, data)
+    dataDiaria = capturarDataHtml()
+    diaria = capturarDiariaHtml()
+    tempo_total = capturarTempoTotalHtml()
+    print(dataDiaria)
+    conn.execute("""
+    INSERT INTO uber_daily_money VALUES (?, ?, ?)
+""", (diaria, dataDiaria, tempo_total))
+    conn.commit()
