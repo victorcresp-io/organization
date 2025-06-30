@@ -10,15 +10,15 @@
     <main class="container">
         <div class="form-card">
             <h1>Diária - Gastos</h1>
-            <form action="/diaria_uber" method="POST">
+            <form action="/gastos_diaria" method="POST">
                 <label for="valor_diaria">Informe o dia que foi feita a diária:</label>
-                <input type="text"  name="valor_diaria" id="valor_diaria" required>
+                <input type="text"  name="data_diaria" id="valor_diaria" required>
 
                 <label for="gasto1">Quanto foi gasto?</label>
-                <input type="text" name="gasto1" id="gasto1" required>
+                <input type="text" name="valor_gasto" id="gasto1" required>
 
-                <label for="gasto2">Informe com o que foi gastado:</label>
-                <input type="text" name="gasto2" id="gasto2" required>
+                <label for="gasto2">Informe com o que foi gasto:</label>
+                <input type="text" name="descricao_gasto" id="gasto2" required>
 
                 <button type="submit" class="submit-btn">Enviar</button>
                 <a href="{{ url_for('informacao_uber') }}" class="back-mainpage">Voltar</a>

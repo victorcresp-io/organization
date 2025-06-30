@@ -4,6 +4,7 @@ import requests
 from flaskr.db import get_db
 from flask import Flask, render_template, request
 from flaskr.functions.uber_function import inserirValoresDb
+from flaskr.functions.uber_gastos_function import inserirValoresDbGastos
 
 def create_app(test_config=None):
     # create and configure the app
@@ -42,12 +43,16 @@ def create_app(test_config=None):
     
     @app.route('/diaria_uber', methods = ['GET', 'POST'])
     def diaria_uber():
-        conn = get_db()
-        inserirValoresDb(conn)
+        if request.method == 'POST':
+            conn = get_db()
+            inserirValoresDb(conn)
         return render_template('diaria_uber.html')
 
     @app.route('/gastos_diaria', methods = ['GET', 'POST'])
     def gastos_diaria():
+        if request.method == 'POST':
+            conn = get_db()
+            inserirValoresDbGastos(conn)
         return render_template('gastos_diaria.html')
     
     from . import db

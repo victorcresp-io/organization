@@ -7,7 +7,8 @@ with app.app_context():
     conn = get_db()
     cursor = conn.cursor()
 
-    res = cursor.execute('SELECT * FROM uber_daily_money').fetchall()
+
+    res = cursor.execute("""SELECT * FROM uber_daily_cost""").fetchall()
     print(res)
 
 """
@@ -18,7 +19,5 @@ perfeitamente. É NECESSÁRIO organizar o código e fazer os testes.
 Este módulo foi criado como um teste de inserção do db.
 
 Precisa-se saber como fazer test com formulários.
-
-
 
 """
