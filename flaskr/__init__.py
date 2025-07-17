@@ -3,8 +3,10 @@ import requests
 
 from flaskr.db import get_db
 from flask import Flask, render_template, request
+from flaskr.functions.capturar_html import inserir_db, capturar_tempo_gasto, capturar_data
 from flaskr.functions.uber_function import inserirValoresDb
 from flaskr.functions.uber_gastos_function import inserirValoresDbGastos
+from flaskr.functions.model import DiariaUber
 
 def create_app(test_config=None):
     # create and configure the app
@@ -43,18 +45,25 @@ def create_app(test_config=None):
     
     @app.route('/diaria_uber', methods = ['GET', 'POST'])
     def diaria_uber():
+        form = DiariaUber(request.form)
         if request.method == 'POST':
             conn = get_db()
-            inserirValoresDb(conn)
-        return render_template('diaria_uber.html')
+            inserir_db(conn, form)
+        return render_template('diaria_uber.html', form = form)
 
     @app.route('/gastos_diaria', methods = ['GET', 'POST'])
     def gastos_diaria():
         if request.method == 'POST':
             conn = get_db()
-            inserirValoresDbGastos(conn)
         return render_template('gastos_diaria.html')
     
+    @app.route("/register", methods = ['GET', 'POST'])
+    def register():
+        form = DiariaUber(request.form)
+        if request.method == "POST":
+            conn = get_db()
+            inserir_db(conn, form)
+        return render_template('teste.html', form=form)
     from . import db
     db.init_app(app)
 

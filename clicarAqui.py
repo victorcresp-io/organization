@@ -6,18 +6,13 @@ app = create_app()
 with app.app_context():
     conn = get_db()
     cursor = conn.cursor()
-
-
-    res = cursor.execute("""SELECT * FROM uber_daily_cost""").fetchall()
+    res = cursor.execute("SELECT * FROM uber_daily_money").fetchall()
     print(res)
 
-"""
-Teste feito para verificar se os dados estão sendo
-inseridos no banco de dados. As funções estão funcionando
-perfeitamente. É NECESSÁRIO organizar o código e fazer os testes.
+'''    cursor.execute("DELETE FROM uber_daily_money")
+    conn.commit()'''
 
-Este módulo foi criado como um teste de inserção do db.
 
-Precisa-se saber como fazer test com formulários.
 
-"""
+'''    res = cursor.execute("""SELECT name FROM sqlite_master WHERE type = 'table'""").fetchall()
+'''    

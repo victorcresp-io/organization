@@ -1,6 +1,6 @@
 import unittest
 
-from flaskr.functions.model import DiariaUber
+from functions.model import DiariaUber
 from wtforms import Form
 
 class TestFormValidate:

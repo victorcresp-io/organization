@@ -17,9 +17,9 @@ def capturarDataHtml() -> date:
     """
 
     data = request.form.get('data_diaria')
-    data_formatada = datetime.strptime(data, '%d/%m/%Y').date()
 
-    return data_formatada
+    
+    return data
 
 def capturarDiariaHtml() -> float:
     """
@@ -35,8 +35,7 @@ def capturarDiariaHtml() -> float:
     """
 
     diaria = request.form.get('valor_diaria')
-    diaria_formatada = float(diaria)
-    return diaria_formatada
+    return diaria
 
 def capturarTempoTotalHtml() -> str:
     """
