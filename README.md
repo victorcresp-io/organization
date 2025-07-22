@@ -1,4 +1,5 @@
-Projeto pessoal para organização financeira usando Flask, Python e SQLite.
+Projeto pessoal para me ajudar a organizar meus gastos e ganhos como motorista de aplicativo.
+Ferramentas usadas:usando Flask, Python e SQLite.
 
 For running, this application do the following steps:
 
