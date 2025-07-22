@@ -1,7 +1,7 @@
 import os
 import requests
 
-from flaskr.db import get_db
+from flaskr.db import get_db, init_db
 from flask import Flask, render_template, request
 from flaskr.functions.capturar_html import inserir_db_diaria, inserir_db_gastos, capturar_tempo_gasto, capturar_data
 from flaskr.functions.uber_function import inserirValoresDb
@@ -33,8 +33,8 @@ def create_app(test_config=None):
     # a simple page that says hello
     @app.route('/', methods = ['GET', 'POST'])
     def main_page():
-        teste = request.form.get('valorTotalUber')
-        print(teste)
+        if not os.path.exists(app.config['DATABASE']):
+            init_db()
         return render_template('base.html')
     
     @app.route('/informacao_uber', methods = ['GET', 'POST'])
@@ -62,9 +62,6 @@ def create_app(test_config=None):
     @app.route("/register", methods = ['GET', 'POST'])
     def register():
         form = DiariaUber(request.form)
-        if request.method == "POST":
-            conn = get_db()
-            inserir_db_diaria(conn, form)
         return render_template('teste.html', form=form)
     from . import db
     db.init_app(app)
