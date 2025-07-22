@@ -1,4 +1,4 @@
-Projeto pessoal para me ajudar a organizar meus gastos e ganhos como motorista de aplicativo.
+Projeto pessoal para me ajudar a organizar meus gastos e ganhos como motorista de aplicativo.<br>
 Ferramentas usadas:usando Flask, Python e SQLite.
 
 For running, this application do the following steps:
