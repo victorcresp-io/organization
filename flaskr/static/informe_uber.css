@@ -36,6 +36,26 @@ body, html {
 
 }
 
+.back-mainpage {
+    background-color: #007BFF;
+    width: 80%;
+    max-width: 400px;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+
+.back-mainpage:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);  
+}
+
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
