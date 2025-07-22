@@ -12,3 +12,6 @@ class GastosUber(Form):
     data = DateField('Informe o dia que foi feita a diária', validators=[DataRequired()])
     gasto = DecimalField('Qual foi o valor?', validators=[DataRequired()])
 
+class UberFiltering(Form):
+    data_inicial = DateField('Data inicial', validators=[DataRequired()])
+    data_final = DateField('Data final', validators=[DataRequired()])

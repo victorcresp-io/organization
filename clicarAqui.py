@@ -6,8 +6,10 @@ app = create_app()
 with app.app_context():
     conn = get_db()
     cursor = conn.cursor()
-    res = cursor.execute("SELECT * FROM uber_daily_money").fetchall()
-    print(res)
+    res = cursor.execute("SELECT date FROM uber_daily_cost WHERE date == '20/01/2001'").fetchall()
+    exemplo_saida = res[0]
+    print(exemplo_saida)
+    print(type(exemplo_saida))
 
 '''    cursor.execute("DELETE FROM uber_daily_money")
     conn.commit()'''

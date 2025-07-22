@@ -6,7 +6,7 @@ from flask import Flask, render_template, request
 from flaskr.functions.capturar_html import inserir_db_diaria, inserir_db_gastos, capturar_tempo_gasto, capturar_data
 from flaskr.functions.uber_function import inserirValoresDb
 from flaskr.functions.uber_gastos_function import inserirValoresDbGastos
-from flaskr.functions.model import DiariaUber, GastosUber
+from flaskr.functions.model import DiariaUber, GastosUber, UberFiltering
 
 def create_app(test_config=None):
     # create and configure the app
@@ -30,13 +30,14 @@ def create_app(test_config=None):
         print('A pasta instance já existe ou ocorreu erro ao criar.')
         pass
 
-    # a simple page that says hello
+    # Main route
     @app.route('/', methods = ['GET', 'POST'])
     def main_page():
         if not os.path.exists(app.config['DATABASE']):
             init_db()
         return render_template('base.html')
     
+    #Routes for Uber cost
     @app.route('/informacao_uber', methods = ['GET', 'POST'])
     def informacao_uber():
         teste = request.form.get('valorTotalUber')
@@ -59,10 +60,11 @@ def create_app(test_config=None):
             inserir_db_gastos(conn, form)
         return render_template('gastos_diaria.html', form = form)
     
-    @app.route("/register", methods = ['GET', 'POST'])
-    def register():
-        form = DiariaUber(request.form)
-        return render_template('teste.html', form=form)
+    #Route for monitoring and filtering uber costs
+    @app.route("/uber_filtering", methods = ['GET', 'POST'])
+    def uber_filtering():
+        form = UberFiltering(request.form)
+        return render_template('uber_filtering.html', form=form)
     from . import db
     db.init_app(app)
 

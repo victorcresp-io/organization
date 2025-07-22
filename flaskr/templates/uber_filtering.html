@@ -10,16 +10,14 @@
 <body>
     <main class="container">
         <div class="form-card">
-            <h1>Organização - Uber</h1>
+            <h1>Acompanhamento - Uber</h1>
             <form action="/register" method="POST">
-                {{ form.valor.label }}
-                {{ form.valor }}
 
-                {{ form.data.label }}
-                {{ form.data }}
+                {{ form.data_inicial.label }}
+                {{ form.data_inicial }}
 
-                {{ form.tempo.label}}
-                {{ form.tempo}}
+                {{ form.data_final.label }}
+                {{ form.data_final }}
 
                 <button type="submit" class="submit-btn">Enviar</button>
                 <a href="{{ url_for('informacao_uber') }}" class="back-mainpage">Voltar</a>
