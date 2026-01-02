@@ -15,6 +15,7 @@ class GastosUber(Form):
 class Despesas(Form):
     data_inicial = DateField('Data', validators=[DataRequired()])
     descricao_gasto = StringField('Explique a razão desta despesa', validators=[DataRequired()])
+    itens_gasto = StringField('Itens', validators=[DataRequired()])
     opcao = SelectField(
         'Motivo despesa',
         choices = [
