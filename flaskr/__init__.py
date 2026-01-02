@@ -6,7 +6,7 @@ from flask import Flask, render_template, request
 from flaskr.functions.capturar_html import inserir_db_diaria, inserir_db_gastos, capturar_tempo_gasto, capturar_data
 from flaskr.functions.uber_function import inserirValoresDb
 from flaskr.functions.uber_gastos_function import inserirValoresDbGastos
-from flaskr.functions.model import DiariaUber, GastosUber, UberFiltering
+from flaskr.functions.model import DiariaUber, GastosUber, Despesas
 
 def create_app(test_config=None):
     # create and configure the app
@@ -61,10 +61,10 @@ def create_app(test_config=None):
         return render_template('gastos_diaria.html', form = form)
     
     #Route for monitoring and filtering uber costs
-    @app.route("/uber_filtering", methods = ['GET', 'POST'])
+    @app.route("/despesas", methods = ['GET', 'POST'])
     def uber_filtering():
-        form = UberFiltering(request.form)
-        return render_template('uber_filtering.html', form=form)
+        form = Despesas(request.form)
+        return render_template('despesas.html', form=form)
     from . import db
     db.init_app(app)
 
