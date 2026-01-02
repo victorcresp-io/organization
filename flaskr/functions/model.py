@@ -13,10 +13,11 @@ class GastosUber(Form):
     gasto = DecimalField('Qual foi o valor?', validators=[DataRequired()])
 
 class Despesas(Form):
-    data_inicial = DateField('Data', validators=[DataRequired()])
-    descricao_gasto = StringField('Explique a razão desta despesa', validators=[DataRequired()])
-    itens_gasto = StringField('Itens', validators=[DataRequired()])
-    opcao = SelectField(
+    data_despesa = DateField('Data', validators=[DataRequired()])
+    descricao_despesa = StringField('Explique a razão desta despesa', validators=[DataRequired()])
+    itens_despesa = StringField('Itens', validators=[DataRequired()])
+    valor_total_despesa = DecimalField('Valor total da despesa', validators=[DataRequired()])
+    motivo_despesa = SelectField(
         'Motivo despesa',
         choices = [
             ('Alimentação'),
