@@ -13,9 +13,6 @@ def capturar_tempo_gasto(form):
     tempo_gasto_string = tempo_gasto.strftime("%H:%M:%S")
     return tempo_gasto_string
 
-def capturar_tipo_gasto(form):
-    tipo_gasto = form.opcao.data
-    return tipo_gasto
 
 def inserir_db_diaria(conn, form):
     diaria = capturar_valor(form)
@@ -41,11 +38,9 @@ def inserir_db_gastos(conn, form):
     data_diaria = capturar_data(form)
     valor_gasto = capturar_gastos(form)
     descricao_gasto = capturar_descricao_gasto(form)
-    tipo_gasto = capturar_tipo_gasto(form)
     print(data_diaria)
     print(valor_gasto)
     print(descricao_gasto)
-    print(tipo_gasto)
     conn.execute("""
     INSERT INTO uber_daily_cost VALUES (?, ?, ?)
 """, (data_diaria, valor_gasto, descricao_gasto))
