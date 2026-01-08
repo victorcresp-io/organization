@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS uber_daily_cost (
     cost_description TEXT
 );
 
-CREATE TABLE despesas2(
+CREATE TABLE despesas(
     id_despesa INTEGER PRIMARY KEY,
     data_despesa TEXT,
     tipo_despesa TEXT,

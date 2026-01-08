@@ -74,3 +74,6 @@ def create_app(test_config=None):
 
     return app
 
+
+
+banco de dados da minha vps -> load (bigquery) -> transform -> 

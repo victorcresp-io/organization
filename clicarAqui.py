@@ -11,7 +11,7 @@ with app.app_context():
     res = cursor.execute("""SELECT name FROM sqlite_master WHERE type = 'table'""").fetchall() 
     exemplo_saida = res
     print(exemplo_saida)
-    res_schema = cursor.execute("SELECT * FROM despesas2;").fetchall()
+    res_schema = cursor.execute("SELECT * FROM despesas;").fetchall()
     print(res_schema)
 
 

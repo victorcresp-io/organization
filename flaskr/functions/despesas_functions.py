@@ -75,7 +75,7 @@ def inserir_despesas_para_db(conn: object, form):
     print(valo_tot)
 
     conn.execute("""
-    INSERT INTO despesas2 (data, tipo_despesa, explicacao_despesa, item_despesa, valor_total_despesa) 
+    INSERT INTO despesas (data_despesa, tipo_despesa, explicacao_despesa, item_despesa, valor_total_despesa) 
                  VALUES (?, ?, ?, ?, ?)
 """, (data_desp, desc_mot, dsc_gasto, dsc_despesa, valo_tot))
     
