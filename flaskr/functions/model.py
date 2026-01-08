@@ -26,6 +26,7 @@ class Despesas(Form):
             ('Gasolina'),
             ('Empréstimo'),
             ('Acessórios'),
+            ('Hortifruti')
         ],
         validators=[DataRequired()]
     )
